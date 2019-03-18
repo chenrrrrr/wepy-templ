@@ -1,0 +1,26 @@
+<!-- 付款页 -->
+<style lang='less' scoped>
+</style>
+<template>
+  <view class='page-wrapper'>
+    i love money
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Pay extends wepy.page {
+  config = {
+    navigationBarTitleText: '付款'
+  }
+  components = {}
+  data = {}
+  computed = {}
+  methods = {}
+  events = {}
+  initFun() {}
+  onLoad() {
+    this.initFun()
+  }
+}
+</script>

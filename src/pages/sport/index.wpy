@@ -1,0 +1,43 @@
+<!-- 运动页 -->
+<style lang='less' scoped>
+</style>
+<template>
+  <view class='page-wrapper'>
+    <view>i love sport</view>
+    <hr>
+    <view>用户名：{{apiData.username}}</view>
+    <view>头像：{{apiData.username}}</view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+import baseMixin from '@/mixins/base';
+export default class Sport extends wepy.page {
+  config = {
+    navigationBarTitleText: '运动',
+  };
+  mixins = [baseMixin];
+  components = {};
+  data = {
+    apiData: {
+      username: '',
+      avatar: '',
+    },
+  };
+  computed = {};
+  methods = {};
+  events = {};
+  initFun() {
+    this.S.user.getUserInfo().then(res => {
+      this.apiData.username = res.username;
+      this.apiData.avatar = res.avatar;
+      this.$apply();
+    });
+  }
+  onLoad() {}
+  onShow() {
+    this.initFun();
+  }
+}
+</script>

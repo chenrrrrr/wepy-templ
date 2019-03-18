@@ -1,0 +1,78 @@
+<style lang="less">
+@import './static/less/common.less';
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+// !全局请求拦截器
+import interceptor from '@/utils/interceptor'
+
+import { setStore } from 'wepy-redux'
+import configStore from './store'
+
+const store = configStore()
+setStore(store)
+
+export default class extends wepy.app {
+  config = {
+    pages: ['pages/sport/index', 'pages/sleep/index', 'pages/pay/index'],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'wepy-templ',
+      navigationBarTextStyle: 'white'
+    },
+    tabBar: {
+      color: '#333',
+      selectedColor: '#1296db',
+      backgroundColor: '#fff',
+      list: [
+        {
+          pagePath: 'pages/sport/index',
+          text: '运动',
+          iconPath: '/static/img/tab-sport.png',
+          selectedIconPath: '/static/img/tab-sport-select.png'
+        },
+        {
+          pagePath: 'pages/sleep/index',
+          text: '睡眠',
+          iconPath: '/static/img/tab-sleep.png',
+          selectedIconPath: '/static/img/tab-sleep-select.png'
+        },
+        {
+          pagePath: 'pages/pay/index',
+          text: '付费',
+          iconPath: '/static/img/tab-pay.png',
+          selectedIconPath: '/static/img/tab-pay-select.png'
+        }
+      ]
+    },
+    // 网络超时
+    networkTimeout: {
+      request: 10000,
+      downloadFile: 10000
+    }
+  }
+
+  globalData = {
+    userInfo: {
+      userid: '', // 用户id
+      avatar: '', // 头像
+      phone: '' // 手机号
+    },
+    token: {
+      k: '', // 值
+      exp: 0 // 过期时间
+    }
+  }
+
+  constructor() {
+    super()
+    this.use('requestfix')
+    interceptor(this)
+  }
+
+  onLaunch() {}
+}
+</script>

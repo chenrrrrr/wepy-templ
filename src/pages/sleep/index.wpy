@@ -1,0 +1,26 @@
+<!-- 睡眠页 -->
+<style lang='less' scoped>
+</style>
+<template>
+  <view class='page-wrapper'>
+    i love sleep
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'index',
+  };
+  components = {};
+  data = {};
+  computed = {};
+  methods = {};
+  events = {};
+  initFun() {}
+  onLoad() {
+    this.initFun();
+  }
+}
+</script>
