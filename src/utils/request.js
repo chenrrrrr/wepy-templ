@@ -6,7 +6,7 @@ export const request = (url, data, method) => {
       data: data || {},
       method: method || 'POST',
       header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
       },
       success: res => {
         resolve(res)

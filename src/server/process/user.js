@@ -8,7 +8,7 @@ export default {
       return d
     },
     res: d => {
-      return d
+      return d.data.data
     }
   }
 }

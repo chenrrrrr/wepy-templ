@@ -1,12 +1,24 @@
 <!-- 运动页 -->
 <style lang='less' scoped>
+@import '../../static/less/common.less';
+@import '../../static/less/util.less';
+.page-wrapper {
+  .flex();
+  flex-direction: column;
+  image {
+    .wh(100px, 100px);
+    .pd(40rpx, 0, 40rpx, 0);
+  }
+  view {
+    .font(16px, #666);
+    font-weight: 200;
+  }
+}
 </style>
 <template>
   <view class='page-wrapper'>
-    <view>i love sport</view>
-    <hr>
-    <view>用户名：{{apiData.username}}</view>
-    <view>头像：{{apiData.username}}</view>
+    <image src="{{apiData.avatar}}" />
+    <view>{{apiData.username}}</view>
   </view>
 </template>
 
@@ -30,8 +42,8 @@ export default class Sport extends wepy.page {
   events = {};
   initFun() {
     this.S.user.getUserInfo().then(res => {
-      this.apiData.username = res.username;
-      this.apiData.avatar = res.avatar;
+      this.apiData.avatar = res.result.avatar;
+      this.apiData.username = res.result.username;
       this.$apply();
     });
   }

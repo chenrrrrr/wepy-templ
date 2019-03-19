@@ -11,7 +11,7 @@
 import wepy from 'wepy';
 export default class Index extends wepy.page {
   config = {
-    navigationBarTitleText: 'index',
+    navigationBarTitleText: '睡眠',
   };
   components = {};
   data = {};

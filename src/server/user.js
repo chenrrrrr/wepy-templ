@@ -12,6 +12,6 @@ export default {
       url: API + '/api/getUserInfo',
       method: 'POST',
       data: user.getUserInfo.req(req)
-    }).then(res => res.result)
+    }).then(res => user.getUserInfo.res(res))
   }
 }

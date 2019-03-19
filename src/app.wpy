@@ -19,7 +19,7 @@ export default class extends wepy.app {
     pages: ['pages/sport/index', 'pages/sleep/index', 'pages/pay/index'],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#2D8CF0',
       navigationBarTitleText: 'wepy-templ',
       navigationBarTextStyle: 'white'
     },
@@ -60,10 +60,6 @@ export default class extends wepy.app {
       userid: '', // 用户id
       avatar: '', // 头像
       phone: '' // 手机号
-    },
-    token: {
-      k: '', // 值
-      exp: 0 // 过期时间
     }
   }
 
