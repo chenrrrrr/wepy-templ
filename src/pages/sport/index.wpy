@@ -4,6 +4,7 @@
 @import '../../static/less/util.less';
 .page-wrapper {
   .flex();
+  padding:0 30rpx;
   flex-direction: column;
   image {
     .wh(100px, 100px);
@@ -19,37 +20,44 @@
   <view class='page-wrapper'>
     <image src="{{apiData.avatar}}" />
     <view>{{apiData.username}}</view>
+    <view>{{yiyan}}</view>
   </view>
 </template>
 
 <script>
-import wepy from 'wepy';
-import baseMixin from '@/mixins/base';
+import wepy from 'wepy'
+import baseMixin from '@/mixins/base'
+import observer from '@/utils/observer'
+import { compose } from 'redux';
 export default class Sport extends wepy.page {
   config = {
-    navigationBarTitleText: '运动',
-  };
-  mixins = [baseMixin];
-  components = {};
+    navigationBarTitleText: '运动'
+  }
+  mixins = [baseMixin]
+  components = {}
   data = {
     apiData: {
       username: '',
-      avatar: '',
+      avatar: ''
     },
-  };
-  computed = {};
-  methods = {};
-  events = {};
+    yiyan: ''
+  }
+  computed = {}
+  methods = {}
+  events = {}
   initFun() {
     this.S.user.getUserInfo().then(res => {
-      this.apiData.avatar = res.result.avatar;
-      this.apiData.username = res.result.username;
-      this.$apply();
-    });
+      this.apiData.avatar = res.result.avatar
+      this.$apply()
+    })
+    this.S.yiyan.getYiYan().then(res => {
+      this.yiyan = res.data.hitokoto
+      this.$apply()
+    })
   }
   onLoad() {}
   onShow() {
-    this.initFun();
+    this.initFun()
   }
 }
 </script>

@@ -2,25 +2,24 @@
 <style lang='less' scoped>
 </style>
 <template>
-  <view class='page-wrapper'>
-    i love sleep
-  </view>
+  <view class='page-wrapper'></view>
 </template>
 
 <script>
-import wepy from 'wepy';
+import wepy from 'wepy'
+import observer from '@/utils/observer'
 export default class Index extends wepy.page {
   config = {
-    navigationBarTitleText: '睡眠',
-  };
-  components = {};
-  data = {};
-  computed = {};
-  methods = {};
-  events = {};
+    navigationBarTitleText: '睡眠'
+  }
+  components = {}
+  data = {}
+  computed = {}
+  methods = {}
+  events = {}
   initFun() {}
   onLoad() {
-    this.initFun();
+    this.initFun()
   }
 }
 </script>

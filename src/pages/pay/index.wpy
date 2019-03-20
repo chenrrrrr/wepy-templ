@@ -2,9 +2,7 @@
 <style lang='less' scoped>
 </style>
 <template>
-  <view class='page-wrapper'>
-    i love money
-  </view>
+  <view class='page-wrapper'></view>
 </template>
 
 <script>

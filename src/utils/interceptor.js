@@ -1,4 +1,4 @@
-// !拦截器
+// !wepy wx.request 拦截器
 const interceptor = app => {
   return app.intercept('request', {
     config(req) {
