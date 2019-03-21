@@ -2336,7 +2336,7 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-wepy-async-function@^1.4.4:
+wepy-async-function@^1.4.7:
   version "1.4.7"
   resolved "http://registry.npm.taobao.org/wepy-async-function/download/wepy-async-function-1.4.7.tgz#f783164306e175d9a7c2656a33532e619c8eae16"
   integrity sha1-94MWQwbhddmnwmVqM1MuYZyOrhY=

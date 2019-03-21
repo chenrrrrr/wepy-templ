@@ -5,5 +5,5 @@
  * @param {*} phoneNum
  */
 export const formateXXXX = phoneNum => {
-  if (phoneNum) return phoneNum.substr(0, 3) + 'XXXX' + phoneNum.substr(7, 4);
-};
+  if (phoneNum) return phoneNum.substr(0, 3) + 'XXXX' + phoneNum.substr(7, 4)
+}

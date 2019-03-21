@@ -55,18 +55,13 @@ export default class extends wepy.app {
     }
   }
 
-  globalData = {
-    userInfo: {
-      userid: '', // 用户id
-      avatar: '', // 头像
-      phone: '' // 手机号
-    }
-  }
+  globalData = {}
 
   constructor() {
     super()
+    this.use('promisify') // 启动primise化 需要取消勾选开发者工具ES6转ES5
     this.use('requestfix')
-    interceptor(this)
+    interceptor(this) // 全局wepy.request拦截器
   }
 
   onLaunch() {}

@@ -1,25 +1,19 @@
 <!-- 运动页 -->
 <style lang='less' scoped>
 @import '../../static/less/common.less';
-@import '../../static/less/util.less';
 .page-wrapper {
-  .flex();
-  padding:0 30rpx;
-  flex-direction: column;
-  image {
-    .wh(100px, 100px);
-    .pd(40rpx, 0, 40rpx, 0);
-  }
+  display: flex;
+  justify-content: center;
+  padding: 0 30rpx;
   view {
-    .font(16px, #666);
+    color: #666;
+    font-size: 16px;
     font-weight: 200;
   }
 }
 </style>
 <template>
   <view class='page-wrapper'>
-    <image src="{{apiData.avatar}}" />
-    <view>{{apiData.username}}</view>
     <view>{{yiyan}}</view>
   </view>
 </template>
@@ -28,7 +22,7 @@
 import wepy from 'wepy'
 import baseMixin from '@/mixins/base'
 import observer from '@/utils/observer'
-import { compose } from 'redux';
+import { compose } from 'redux'
 export default class Sport extends wepy.page {
   config = {
     navigationBarTitleText: '运动'
@@ -36,24 +30,17 @@ export default class Sport extends wepy.page {
   mixins = [baseMixin]
   components = {}
   data = {
-    apiData: {
-      username: '',
-      avatar: ''
-    },
     yiyan: ''
   }
   computed = {}
   methods = {}
   events = {}
-  initFun() {
-    this.S.user.getUserInfo().then(res => {
-      this.apiData.avatar = res.result.avatar
-      this.$apply()
+  async initFun() {
+    let res = await this.S.yiyan.getYiYan({
+      url: 'https://v1.hitokoto.cn/?c=b'
     })
-    this.S.yiyan.getYiYan().then(res => {
-      this.yiyan = res.data.hitokoto
-      this.$apply()
-    })
+    this.yiyan = res.hitokoto
+    this.$apply()
   }
   onLoad() {}
   onShow() {
